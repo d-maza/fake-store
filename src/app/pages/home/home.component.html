@@ -1,0 +1,32 @@
+<section style="background-color: #2222224c;">
+  <div class="text-center container py-2">
+    <h1 class="mt-2 mb-4"><strong>{{title}} 👕</strong></h1>
+    <div class="row">
+      @for(product of products() ; track product.id){
+      <div class="col-lg-3 col-md-12 mb-4">
+        <div class="card h-100 shadow">
+          <div class="card-header bg-dark text-light">
+            <small class="card-title">{{product.category | uppercase}}</small>
+          </div>
+          <img src="{{product.image}}" class="w-50 mt-3 mx-auto" />
+          <div class="card-body">
+            <h5 class="card-title mb-3">{{product.title}}</h5>
+            <div class="d-flex align-items-center">
+            <small class="card-text ">{{product.description}}</small>
+            </div>
+
+          </div>
+          <div class="card-footer d-flex">
+
+              <small class="text-start text-warning flex-grow-1">{{ranking(product.rating.rate) }} <span class="text-dark">
+                 ({{product.rating.count}})
+              </span>
+              </small>
+              <a class="btn btn-dark btn-sm">{{product.price | currency: 'EUR' }}</a>
+          </div>
+        </div>
+      </div>
+      }
+    </div>
+  </div>
+</section>

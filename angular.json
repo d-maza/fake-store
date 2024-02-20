@@ -6,7 +6,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "davad-maza": {
+    "fake-store": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -16,7 +16,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/davad-maza",
+            "outputPath": "dist/fake-store",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -28,6 +28,7 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -60,10 +61,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "davad-maza:build:production"
+              "buildTarget": "fake-store:build:production"
             },
             "development": {
-              "buildTarget": "davad-maza:build:development"
+              "buildTarget": "fake-store:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -71,7 +72,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "davad-maza:build"
+            "buildTarget": "fake-store:build"
           }
         },
         "test": {
