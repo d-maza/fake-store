@@ -1,12 +1,12 @@
 import { Component, OnInit, inject, signal } from '@angular/core';
 import { FakeStoreApiService } from '../../services/fakestoreapi.service';
-import { CurrencyPipe, UpperCasePipe} from '@angular/common';
-import { FakeStoreResponse, Rate } from '../../models/fakeStore';
+import {  Product } from '../../models/fakeStore';
+import { CardComponent } from '../../components/card/card.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CurrencyPipe , UpperCasePipe],
+  imports: [CardComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
 
   fakeStoreSvc = inject(FakeStoreApiService);
 
-  products = signal<FakeStoreResponse[]>([]);
+  products = signal<Product[]>([]);
 
   ngOnInit(): void {
     this.fakeStoreSvc.getProducts().subscribe((data) => {
@@ -24,8 +24,6 @@ export class HomeComponent implements OnInit {
     })
   }
 
-  ranking(rate: number): string {
-    return Rate.get(Math.round(rate)) || '';
-  }
+
 
 }
